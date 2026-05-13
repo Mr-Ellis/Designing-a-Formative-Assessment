@@ -6,15 +6,14 @@
   <title>Node 2 — Logic Gate Lockdown</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <div id="timer" class="timer">45:00</div>
   <h2>Node 2 — Logic Gate Lockdown</h2>
   <p>Complete the truth table and compute the final output.</p>
-
   <p>Enter the 3-digit code:</p>
-  <input id="code2" type="text">
+  <input id="code2" type="text" maxlength="3">
   <button onclick="checkCode('code2','731',3)">Unlock Door</button>
-
+  <div id="feedback" class="feedback" aria-live="polite"></div>
   <script src="script2.js"></script>
 </body>
 </html>
