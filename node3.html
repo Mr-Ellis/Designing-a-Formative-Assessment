@@ -76,13 +76,12 @@
   <div id="timer" class="timer">50:00</div>
   <h2>Node 3 — Final Core Access</h2>
   <p>Override the AI's core with the master reset code.</p>
-  <p>Enter the 4-digit override code:</p>
-  <input id="code3" type="text" maxlength="4" placeholder="Code">
+  <p>Enter the 3-digit override code:</p>
+  <input id="code3" type="text" maxlength="3" placeholder="Code">
   <button onclick="checkCode3()">Unlock Door</button>
   <div id="feedback" class="feedback" aria-live="polite"></div>
 
   <script>
-    // ===== TIMER =====
     let timeLeft = 45 * 60;
     let timerInterval;
 
@@ -104,23 +103,18 @@
 
     if (document.getElementById('timer')) startTimer();
 
-    // ===== ESCAPE (node 0) =====
     function escapeGame() {
       clearInterval(timerInterval);
       alert('🎉 You escaped the AI! Freedom!');
       window.location.href = 'index.html';
     }
 
-    // ===== CHECK CODE FOR NODE 3 =====
     function checkCode3() {
       const input = document.getElementById('code3');
       const feedback = document.getElementById('feedback');
-      const correctCode = '9034'; // Change this to your actual final code
+      const correctCode = '119'; // ✅ FIXED
 
-      if (!input || !feedback) {
-        console.error('Missing input or feedback element');
-        return;
-      }
+      if (!input || !feedback) return;
 
       const userCode = input.value.trim();
 
