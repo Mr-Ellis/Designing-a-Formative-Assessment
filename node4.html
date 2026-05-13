@@ -81,7 +81,6 @@
   <div id="feedback" class="feedback" aria-live="polite"></div>
 
   <script>
-    // ===== TIMER =====
     let timeLeft = 45 * 60;
     let timerInterval;
 
@@ -103,25 +102,18 @@
 
     if (document.getElementById('timer')) startTimer();
 
-    // ===== ESCAPE (index.html) =====
     function escapeGame() {
       clearInterval(timerInterval);
       alert('🎉 You escaped the AI! Freedom!');
       window.location.href = 'index.html';
     }
 
-    // ===== CHECK CODE FOR NODE 4 =====
     function checkCode4() {
       const input = document.getElementById('code4');
       const feedback = document.getElementById('feedback');
-      // Combined code: node1(4821) + node2(731) + node3(984) = 4821731984 (10 digits)
-      // But original had 11 digits: 48217311984 — adjust to match your actual codes
-      const correctCode = '4821731984'; // 10 digits — change to 11 if needed
+      const correctCode = '48217311984'; // ✅ 11 digits: 4821 + 731 + 119
 
-      if (!input || !feedback) {
-        console.error('Missing input or feedback element');
-        return;
-      }
+      if (!input || !feedback) return;
 
       const userCode = input.value.trim();
 
