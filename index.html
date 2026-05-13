@@ -1,31 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>System Lockdown — Escape Room</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-
 <body class="intro">
   <div class="overlay"></div>
-
-  <div class="container">
-    <h1 class="alert">⚠ SYSTEM LOCKDOWN ACTIVATED ⚠</h1>
+  <main class="container">
+    <h1 class="alert" role="alert">⚠ SYSTEM LOCKDOWN ACTIVATED ⚠</h1>
     <p class="intro-text">
       The building’s AI has sealed all electronic doors.  
       To unlock them, your team must solve the system’s internal logic puzzles.  
       You have <strong>40 minutes</strong> before the AI initiates a full security purge.
     </p>
-
-    <button onclick="startEscape()" class="start-btn">
+    <button onclick="startEscape()" class="start-btn" aria-label="Begin mission">
       Begin Mission
     </button>
-  </div>
-
-  <!-- Updated script reference -->
+    <noscript>
+      <p>JavaScript is required to start the escape room. Please enable it.</p>
+    </noscript>
+  </main>
   <script src="script2.js"></script>
 </body>
-</html>
 
 
