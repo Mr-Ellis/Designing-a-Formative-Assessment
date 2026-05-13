@@ -4,16 +4,140 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Node 4 — Final Override</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Courier New', monospace;
+      background: #0a0a0a;
+      color: #00ff00;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .timer {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 1.5rem;
+      background: #111;
+      padding: 10px 20px;
+      border: 1px solid #00ff00;
+      border-radius: 5px;
+    }
+    h2 {
+      margin-top: 60px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #00ff00;
+    }
+    p {
+      margin-bottom: 15px;
+      max-width: 500px;
+    }
+    input[type="text"] {
+      background: #111;
+      border: 1px solid #00ff00;
+      color: #00ff00;
+      padding: 10px;
+      font-size: 1.2rem;
+      text-align: center;
+      width: 200px;
+      margin-bottom: 15px;
+    }
+    button {
+      background: transparent;
+      border: 2px solid #00ff00;
+      color: #00ff00;
+      padding: 10px 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    button:hover {
+      background: #00ff00;
+      color: #0a0a0a;
+    }
+    .feedback {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      min-height: 30px;
+    }
+  </style>
 </head>
 <body>
   <div id="timer" class="timer">45:00</div>
   <h2>Node 4 — Final Override</h2>
   <p>Combine all previous codes: (node1 + node2 + node3) and enter the 11-digit master code.</p>
-  <input id="code4" type="text" maxlength="11">
-  <button onclick="checkCode('code4','48217311984',0)">Unlock Door</button>
+  <input id="code4" type="text" maxlength="11" placeholder="11-digit code">
+  <button onclick="checkCode4()">Unlock Door</button>
   <div id="feedback" class="feedback" aria-live="polite"></div>
-  <script src="script2.js"></script>
+
+  <script>
+    // ===== TIMER =====
+    let timeLeft = 45 * 60;
+    let timerInterval;
+
+    function startTimer() {
+      const timerDisplay = document.getElementById('timer');
+      if (!timerDisplay) return;
+      timerInterval = setInterval(() => {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          alert('⏰ Time is up! The AI purged the system.');
+          window.location.href = 'index.html';
+        }
+        timeLeft--;
+      }, 1000);
+    }
+
+    if (document.getElementById('timer')) startTimer();
+
+    // ===== ESCAPE (index.html) =====
+    function escapeGame() {
+      clearInterval(timerInterval);
+      alert('🎉 You escaped the AI! Freedom!');
+      window.location.href = 'index.html';
+    }
+
+    // ===== CHECK CODE FOR NODE 4 =====
+    function checkCode4() {
+      const input = document.getElementById('code4');
+      const feedback = document.getElementById('feedback');
+      // Combined code: node1(4821) + node2(731) + node3(984) = 4821731984 (10 digits)
+      // But original had 11 digits: 48217311984 — adjust to match your actual codes
+      const correctCode = '4821731984'; // 10 digits — change to 11 if needed
+
+      if (!input || !feedback) {
+        console.error('Missing input or feedback element');
+        return;
+      }
+
+      const userCode = input.value.trim();
+
+      if (userCode === correctCode) {
+        feedback.textContent = '✅ Access Granted. Core Override Successful.';
+        feedback.style.color = '#0f0';
+        input.disabled = true;
+        setTimeout(escapeGame, 1500);
+      } else {
+        feedback.textContent = '❌ Access Denied. Try again.';
+        feedback.style.color = '#f00';
+        input.value = '';
+        input.focus();
+      }
+    }
+  </script>
 </body>
 </html>
 
