@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Node 3 — Maintenance Tunnel Maze</title>
+  <title>Node 3 — Firewall Crack</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <h2>Node 3 — Maintenance Tunnel Maze</h2>
-  <p>Write pseudocode to navigate the maze. The correct solution reveals a QR code.</p>
-
-  <p>Enter the password from the QR code:</p>
-  <input id="code3" type="text">
-  <button onclick="checkCode('code3','REBOOT',4)">Unlock Door</button>
-
+  <div id="timer" class="timer">45:00</div>
+  <h2>Node 3 — Firewall Crack</h2>
+  <p>Decrypt the message: "Hvs iwts qcbs!" (hint: Caesar cipher, shift 1)</p>
+  <p>Enter the 4-digit decryption key (number):</p>
+  <input id="code3" type="text" maxlength="4">
+  <button onclick="checkCode('code3','1984',4)">Unlock Door</button>
+  <div id="feedback" class="feedback" aria-live="polite"></div>
   <script src="script2.js"></script>
 </body>
 </html>
