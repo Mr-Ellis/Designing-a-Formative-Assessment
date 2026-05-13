@@ -6,17 +6,15 @@
   <title>Node 1 — Sensor Array Malfunction</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <div id="timer" class="timer">45:00</div>
   <h2>Node 1 — Sensor Array Malfunction</h2>
   <p>The AI’s door sensors are overloaded with irrelevant data. Identify ONLY the essential elements.</p>
-
-  <textarea id="answer" rows="8" cols="50"></textarea>
-
+  <textarea id="answer" rows="8" cols="50" placeholder="Paste or type the essential data here..."></textarea>
   <p>Enter the 4-digit code hidden in the essential data:</p>
-  <input id="code1" type="text">
+  <input id="code1" type="text" maxlength="4">
   <button onclick="checkCode('code1','4821',2)">Unlock Door</button>
-
+  <div id="feedback" class="feedback" aria-live="polite"></div>
   <script src="script2.js"></script>
 </body>
 </html>
