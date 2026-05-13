@@ -3,18 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Node 4 — Override Terminal</title>
+  <title>Node 4 — Final Override</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <h2>Node 4 — Override Terminal</h2>
-  <p>Submit your state diagram and evaluation to the instructor.</p>
-
-  <p>Enter the MASTER OVERRIDE CODE:</p>
-  <input id="code4" type="text">
-  <button onclick="checkCode('code4','UNLOCK',0)">Release Doors</button>
-
+  <div id="timer" class="timer">40:00</div>
+  <h2>Node 4 — Final Override</h2>
+  <p>Combine all previous codes: (node1 + node2 + node3) and enter the 11-digit master code.</p>
+  <input id="code4" type="text" maxlength="11">
+  <button onclick="checkCode('code4','48217311984',0)">Unlock Door</button>
+  <div id="feedback" class="feedback" aria-live="polite"></div>
   <script src="script2.js"></script>
 </body>
 </html>
